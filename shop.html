@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FurryWishes - Shop</title>
+<link rel="stylesheet" href="style.css">
+<script src="https://kit.fontawesome.com/a076d05399.js"></script>
+</head>
+<body>
+
+<header>
+  <div class="logo"><i class="fa fa-paw"></i> FurryWishes</div>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="shop.html">Shop</a>
+    <a href="cart.html">Cart (<span id="cartCount">0</span>)</a>
+    <a href="contact.html">Contact</a>
+    <a href="login.html">Login</a>
+  </nav>
+  <div class="hamburger" onclick="toggleMenu()">☰</div>
+</header>
+
+<section>
+<h2>Pet Food</h2>
+<div class="grid">
+  <div class="card">
+    <img src="dogfood.jpeg" alt="Organic Dog Food">
+    <h3>Organic Dog Food</h3>
+    <p>₹899</p>
+    <button onclick="addToCart('Organic Dog Food',899)">Add to Cart</button>
+  </div>
+  <div class="card">
+    <img src="catfood.jpeg" alt="Cat Kibble">
+    <h3>Premium Cat Kibble</h3>
+    <p>₹749</p>
+    <button onclick="addToCart('Premium Cat Kibble',749)">Add to Cart</button>
+  </div>
+</div>
+
+<h2>Pet Toys</h2>
+<div class="grid">
+  <div class="card">
+    <img src="rope.jpeg" alt="Chew Rope Toy">
+    <h3>Chew Rope Toy</h3>
+    <p>₹299</p>
+    <button onclick="addToCart('Chew Rope Toy',299)">Add to Cart</button>
+  </div>
+  <div class="card">
+    <img src="ball.jpeg" alt="Interactive Ball">
+    <h3>Interactive Ball</h3>
+    <p>₹399</p>
+    <button onclick="addToCart('Interactive Ball',399)">Add to Cart</button>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
