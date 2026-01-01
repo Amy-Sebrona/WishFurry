@@ -5,17 +5,23 @@
   --accent: #FF986A;
 }
 
+/* ===== GLOBAL RESET ===== */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: 'Poppins', sans-serif;
-
 }
 
+/* ===== ABSTRACT GRADIENT BACKGROUND ===== */
 body {
-  background: #f9fbff;
   color: var(--dark);
+  background:
+    radial-gradient(circle at 20% 20%, rgba(241,109,52,0.12), transparent 40%),
+    radial-gradient(circle at 80% 30%, rgba(255,152,106,0.18), transparent 45%),
+    radial-gradient(circle at 50% 80%, rgba(187,224,239,0.55), transparent 55%),
+    linear-gradient(135deg, #f8fbff, #eef7fb);
+  background-attachment: fixed;
 }
 
 /* ===== HEADER ===== */
@@ -24,7 +30,8 @@ header {
   justify-content: space-between;
   align-items: center;
   padding: 18px 50px;
-  background: white;
+  background: rgba(255,255,255,0.92);
+  backdrop-filter: blur(6px);
   position: sticky;
   top: 0;
   z-index: 10;
@@ -39,7 +46,9 @@ header {
   font-weight: 700;
 }
 
-.logo i { color: var(--primary); }
+.logo i {
+  color: var(--primary);
+}
 
 nav {
   display: flex;
@@ -54,7 +63,9 @@ nav a {
   transition: color 0.3s;
 }
 
-nav a:hover { color: var(--primary); }
+nav a:hover {
+  color: var(--primary);
+}
 
 .hamburger {
   display: none;
@@ -62,20 +73,7 @@ nav a:hover { color: var(--primary); }
   cursor: pointer;
 }
 
-/* ===== HERO ===== */
-.hero {
-  background: var(--bg-light);
-  padding: 80px 50px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
-}
-
-.hero-text h1 { font-size: 48px; margin-bottom: 20px; }
-.hero-text p { margin-bottom: 20px; max-width: 450px; }
-.hero-img { width: 400px; max-width: 100%; border-radius: 12px; }
-
+/* ===== CTA BUTTON ===== */
 .cta {
   display: inline-block;
   background: var(--primary);
@@ -87,12 +85,83 @@ nav a:hover { color: var(--primary); }
   transition: background 0.3s, transform 0.3s;
 }
 
-.cta:hover { 
-  background: var(--accent); 
+.cta:hover {
+  background: var(--accent);
   transform: scale(1.05);
 }
 
-/* ===== GRID ===== */
+/* ===== HERO SECTION ===== */
+.hero {
+  background: linear-gradient(
+    135deg,
+    rgba(187,224,239,0.65),
+    rgba(255,255,255,0.85)
+  );
+  padding: 90px 60px;
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  align-items: center;
+  gap: 40px;
+  border-radius: 0 0 40px 40px;
+}
+
+.hero-content h1 {
+  font-size: 52px;
+  line-height: 1.2;
+  margin-bottom: 18px;
+}
+
+.hero-content p {
+  font-size: 17px;
+  max-width: 480px;
+  margin-bottom: 25px;
+}
+
+.hero-actions {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.hero-badge {
+  font-size: 14px;
+  font-weight: 600;
+  background: white;
+  padding: 8px 14px;
+  border-radius: 20px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.12);
+}
+
+/* ===== FLOATING IMAGE CARD ===== */
+.hero-image-card {
+  background: white;
+  padding: 15px;
+  border-radius: 20px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.18);
+  transform: translateY(-20px);
+}
+
+.hero-image-card img {
+  width: 100%;
+  max-width: 420px;
+  border-radius: 16px;
+  display: block;
+}
+
+/* ===== FORMS ===== */
+input,
+textarea,
+select {
+  width: 100%;
+  max-width: 400px;
+  padding: 12px;
+  margin: 10px 0;
+  border: 2px solid var(--dark);
+  border-radius: 8px;
+  background: white;
+}
+
+/* ===== GRID / CARDS ===== */
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -114,92 +183,134 @@ nav a:hover { color: var(--primary); }
 }
 
 .card img {
-  width: 100%;
-  border-radius: 10px;
-  margin-bottom: 12px;
-}
-
-button {
-  margin-top: 8px;
-  padding: 10px 18px;
-  border: none;
-  border-radius: 8px;
-  background: var(--primary);
-  color: #fff;
-  cursor: pointer;
-  transition: background 0.3s, transform 0.3s;
-}
-
-button:hover {
-  background: var(--accent);
-  transform: scale(1.05);
-}
-
-/* ===== CART ===== */
-#cartItems p {
-  background: white;
-  padding: 14px;
-  margin: 12px 0;
-  border-radius: 10px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-#cartItems button {
-  background: red;
-  color: white;
-  border: none;
-  padding: 5px 10px;
-  cursor: pointer;
-}
-
-/* ===== FORM ===== */
-input, textarea {
-  width: 100%;
-  max-width: 400px;
-  padding: 12px;
-  margin: 10px 0;
-  border: 2px solid var(--dark);
-  border-radius: 8px;
-}
-
-/* ===== RESPONSIVE ===== */
-@media (max-width: 768px) {
-  nav { display: none; position: absolute; top: 70px; right: 20px; background: white; flex-direction: column; padding: 15px; border-radius: 10px; }
-  nav.show { display: flex; }
-  .hamburger { display: block; }
-  .hero { flex-direction: column; text-align: center; }
-}
-.card img {
   width: 220px;
   height: 220px;
   object-fit: cover;
   border-radius: 12px;
   margin-bottom: 12px;
 }
-/* ===== CONTACT FORM SIDE-BY-SIDE ===== */
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 900px) {
+  .hero {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .hero-content p {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero-actions {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .hero-image-card {
+    transform: none;
+    margin-top: 30px;
+  }
+}
+
+@media (max-width: 768px) {
+  nav {
+    display: none;
+    position: absolute;
+    top: 70px;
+    right: 20px;
+    background: rgba(255,255,255,0.95);
+    flex-direction: column;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.12);
+  }
+
+  nav.show {
+    display: flex;
+  }
+
+  .hamburger {
+    display: block;
+  }
+}
+/* ===== FEEDBACK PAGE ===== */
+.feedback-section {
+  padding: 60px 20px;
+  text-align: center;
+  max-width: 600px;
+  margin: auto;
+}
+
+.feedback-section h2 {
+  font-size: 32px;
+  margin-bottom: 10px;
+}
+
+.feedback-section p {
+  margin-bottom: 25px;
+  color: #444;
+}
+
+.feedback-section form {
+  background: white;
+  padding: 30px;
+  border-radius: 14px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+}
+
+.feedback-section input,
+.feedback-section textarea,
+.feedback-section select {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
+  border-radius: 8px;
+  border: 2px solid var(--dark);
+  font-size: 15px;
+}
+
+.feedback-section textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+#feedbackStatus {
+  margin-top: 15px;
+  font-weight: 600;
+}
+/* ===== CONTACT FORM – SAME LINE ALIGNMENT ===== */
 .contact-row {
-  display: flex;          /* side by side */
-  gap: 20px;              /* space between email and message */
-  flex-wrap: wrap;        /* wrap on small screens */
+  display: grid;
+  grid-template-columns: 1fr 1fr;   /* Equal width */
+  gap: 20px;                        /* Same spacing */
+  align-items: stretch;
   margin-bottom: 20px;
 }
 
 .contact-row input,
 .contact-row textarea {
-  flex: 1;                /* each takes equal space */
-  min-width: 200px;       /* ensures they don’t shrink too much */
+  width: 100%;
+  height: 100%;
   padding: 12px;
   border: 2px solid var(--dark);
   border-radius: 8px;
   font-size: 16px;
-  resize: vertical;       /* textarea can resize vertically only */
+  resize: none;                     /* Keeps textarea aligned */
 }
 
-/* Responsive for mobile */
+/* Make textarea height visually balanced */
+.contact-row textarea {
+  min-height: 52px;
+}
+
+/* ===== MOBILE RESPONSIVE ===== */
 @media (max-width: 768px) {
   .contact-row {
-    flex-direction: column;
+    grid-template-columns: 1fr;     /* Stack on small screens */
+  }
+
+  .contact-row textarea {
+    min-height: 120px;
   }
 }
